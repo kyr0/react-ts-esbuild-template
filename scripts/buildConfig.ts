@@ -11,9 +11,10 @@ require('dotenv').config({ path: resolve(__dirname, '../.env') })
 
 const env: string = process.env.NODE_ENV || 'development'
 
-const processEnvVars: { [key: string]: string } = {
-  'process.env.NODE_ENV': env,
-}
+// put default NODE_ENV
+process.env.NODE_ENV = env
+
+const processEnvVars: { [key: string]: string } = {}
 
 // filter environment variable names to make sure not to expose env vars unintentionally
 for (const key in process.env) {
@@ -27,18 +28,11 @@ const projectPackageJson: any = require(resolve(__dirname, '../package.json'))
 // according to that
 const browserslistConfig = browserslist(projectPackageJson.browserslist[env])
 
-// mark all project node_modules dependencies to be external
-const external = []
-for (const npmModuleName in projectPackageJson.dependencies) {
-  external.push(npmModuleName)
-}
-
 export const buildConfig: BuildOptions = {
   entryPoints: [resolve(__dirname, '../src/index.tsx')],
   bundle: true,
   sourcemap: 'both',
   outdir: resolve(__dirname, '../public/dist'),
-  // external,
   logLevel: 'info',
   define: {
     ...processEnvVars,

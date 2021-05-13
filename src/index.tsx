@@ -12,7 +12,6 @@ import { ROUTES } from './routes'
 
 // printing some environment variables,
 // read from .env or the actual environment
-console.log('version', process.env.APP_VERSION)
 console.log('env', process.env.NODE_ENV)
 
 ReactDOM.render(
