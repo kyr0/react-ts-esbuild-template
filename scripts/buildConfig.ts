@@ -9,8 +9,11 @@ const { esbuildPluginBrowserslist } = require('esbuild-plugin-browserslist')
 // read environment variables from .env file
 require('dotenv').config({ path: resolve(__dirname, '../.env') })
 
-const processEnvVars: { [key: string]: string } = {}
 const env: string = process.env.NODE_ENV || 'development'
+
+const processEnvVars: { [key: string]: string } = {
+  NODE_ENV: env,
+}
 
 // filter environment variable names to make sure not to expose env vars unintentionally
 for (const key in process.env) {
