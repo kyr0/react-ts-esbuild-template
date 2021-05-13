@@ -1,0 +1,18 @@
+[build]
+  command = "yarn build"
+  publish = "public"
+
+[functions]
+  directory = "functions/"
+
+[[redirects]]
+  from = "/functions/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Single Page App (SPA) needs to redirect all /whatever
+# routes to /
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
