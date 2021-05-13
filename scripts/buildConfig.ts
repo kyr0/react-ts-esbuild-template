@@ -12,7 +12,7 @@ require('dotenv').config({ path: resolve(__dirname, '../.env') })
 const env: string = process.env.NODE_ENV || 'development'
 
 const processEnvVars: { [key: string]: string } = {
-  NODE_ENV: env,
+  'process.env.NODE_ENV': env,
 }
 
 // filter environment variable names to make sure not to expose env vars unintentionally
