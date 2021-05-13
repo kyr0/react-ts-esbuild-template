@@ -1,7 +1,13 @@
-# healing.earth Website
+# `React 17` + `TypeScript 4.2` + `esbuild` + `Sass`
 
-This project was generated from the TypeScript template of `CRA` (Create React App).
-The exact command was: `npx create-react-app@4.0.3 healing-earth-website --template typescript`
+This project is a template for web apps and websites that
+would be created with the frameworks named in the title.
+
+Simply fork this repo, clone locally and run: `yarn`
+to install all the dependencies.
+
+This project layout also comes with a ready-made `VSCode`
+workspace configuration.
 
 ## Available Scripts
 
